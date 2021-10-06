@@ -3,12 +3,6 @@ import React, { useState, useEffect } from "react";
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
-
-
-
-
-
-
 function WeatherFetch() {
   // const city = "berlin"
   const [city, setCity] = useState("");
@@ -32,39 +26,13 @@ function WeatherFetch() {
       setMain(data.weather[0].main);
       setIconID(data.weather[0].icon);
       setDisplayCity(city);
-      setId(data.id)
+      setId(data.id);
     }
   };
 
   useEffect(() => {
     loadPageData();
   }, [city]);
-
-
-  // useEffect(() => {
-  //  window.myWidgetParam ? window.myWidgetParam : (window.myWidgetParam = []);
-  //   window.myWidgetParam.push({
-  //     id: 11,
-  //     cityid: "3172394",
-  //     appid: "b7e88f5530d434448d216c34fb206639",
-  //     units: "metric",
-  //     containerid: "openweathermap-widget-11",
-  //   });
-  //   (function () {
-  //     let script = document.createElement("script");
-  //     script.async = true;
-  //     script.charset = "utf-8";
-  //     script.src =
-  //       "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-  //     let s = document.getElementsByTagName("script")[0];
-  //     s.parentNode.insertBefore(script, s);
-  //   })();
-  
-  // script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js";
-  // script.async = true;
-  
-  // document.body.appendChild(script);;
-  // }, []);
 
   return (
     <>
@@ -75,8 +43,23 @@ function WeatherFetch() {
           onChange={(e) => setCity(e.target.value)}
         />
       </div>
+      {city && (
+        <div>
+          <p>
+            Temperature for {displayCity}: {mainTemp}℃
+          </p>
+          <p>id: {id}</p>
+          <p>Feels like: {feels_like}℃</p>
+          <p>Weather Parameter: {main}</p>
+          <p>Description: {description}</p>
+          <img
+            src={`http://openweathermap.org/img/wn/${iconID}@2x.png`}
+            alt="icon"
+          />
+        </div>
+      )}
 
-      <p>
+      {/* <p>
         Temperature for {displayCity}: {mainTemp}℃
       </p>
       <p>id: {id}</p>
@@ -86,7 +69,7 @@ function WeatherFetch() {
       <img
         src={`http://openweathermap.org/img/wn/${iconID}@2x.png`}
         alt="icon"
-      />
+      /> */}
     </>
   );
 }
