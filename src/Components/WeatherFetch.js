@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
@@ -28,6 +29,7 @@ function WeatherFetch() {
       setIconID(data.weather[0].icon);
       setDisplayCity(city);
       setId(data.id);
+      console.log(data);
     }
   };
 
@@ -43,22 +45,32 @@ function WeatherFetch() {
 
   return (
     <>
-      {/* <form
-        onSubmit={(e) => {
-          handleSubmit(e);
-        }}
-      >
-        <label>
-          <input
-            type="text"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            placeholder="Choose your city"
-          />
-        </label>
-        <input type="submit" value="Submit" 
-        />
-      </form> */}
+      <Helmet
+        script={[
+          {
+            type: "text/javascript",
+            innerHTML: `
+             
+        window.myWidgetParam ? window.myWidgetParam : (window.myWidgetParam = []);
+        window.myWidgetParam.push({
+          id: 11,
+          cityid: "${id}",
+          appid: "b7e88f5530d434448d216c34fb206639",
+          units: "metric",
+          containerid: "openweathermap-widget-11",
+        });
+        (function () {
+          var script = document.createElement("script");
+          script.async = true;
+          script.charset = "utf-8";
+          script.src =
+            "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(script, s);
+        })(); `,
+          },
+        ]}
+      />
       <form onSubmit={handleSubmit}>
         <label>
           Enter your City:
@@ -98,7 +110,7 @@ function WeatherFetch() {
           />
         </div>
       )}
-
+      <div id="openweathermap-widget-11"></div>
       {/* <p>
         Temperature for {displayCity}: {mainTemp}℃
       </p>
