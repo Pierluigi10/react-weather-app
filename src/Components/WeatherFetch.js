@@ -13,6 +13,7 @@ function WeatherFetch() {
   const [main, setMain] = useState("");
   const [id, setId] = useState("");
   const [iconID, setIconID] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   const loadPageData = async () => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`;
@@ -30,20 +31,59 @@ function WeatherFetch() {
     }
   };
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   loadPageData();
+  // }, [city]);
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
     loadPageData();
-  }, [city]);
+    setShowForm(true);
+  };
 
   return (
     <>
-      <div>
-        <input
-          type="text"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
+      {/* <form
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
+        <label>
+          <input
+            type="text"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            placeholder="Choose your city"
+          />
+        </label>
+        <input type="submit" value="Submit" 
         />
-      </div>
-      {city && (
+      </form> */}
+      <form onSubmit={handleSubmit}>
+        <label>
+          Enter your City:
+          <input
+            type="text"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+        </label>
+        <input type="submit" />
+      </form>
+
+      {/* <form onSubmit={handleSubmit}>
+        <label>
+          Enter your City:
+          <input
+            type="text"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+        </label>
+        <input type="submit" />
+      </form> */}
+
+      {showForm && (
         <div>
           <p>
             Temperature for {displayCity}: {mainTemp}℃
