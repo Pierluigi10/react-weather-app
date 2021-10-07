@@ -10,11 +10,12 @@ function WeatherFetch() {
   const [feels_like, setFeelsLike] = useState("");
   const [mainTemp, setMainTemp] = useState("");
   const [description, setDescription] = useState("");
-  const [main, setMain] = useState("");
+  // const [main, setMain] = useState("");
   const [humidity, setHumidity] = useState("");
   const [id, setId] = useState("");
   const [iconID, setIconID] = useState([]);
-  const [showForm, setShowForm] = useState(false);
+  // const [showForm, setShowForm] = useState(false);
+ 
 
   const loadPageData = async () => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`;
@@ -25,10 +26,11 @@ function WeatherFetch() {
       setMainTemp(data.main.temp);
       setFeelsLike(data.main.feels_like);
       setDescription(data.weather[0].description);
-      setMain(data.weather[0].main);
+      // setMain(data.weather[0].main);
       setHumidity(data.main.humidity);
       setIconID(data.weather[0].icon);
       setDisplayCity(city);
+      console.log(data.id);
       setId(data.id);
       console.log(data);
     }
@@ -41,9 +43,21 @@ function WeatherFetch() {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     loadPageData();
-    setShowForm(true);
-    setId()
+    // setShowForm(true);
+    setId();
   };
+
+  // const handleSubmit = (evt) => {
+  //   if(id !== ""){
+  //   evt.preventDefault();
+  //   loadPageData();
+  //   // setShowForm(true);
+  //   setId();
+
+  // } else {
+  //   setMessage("Please enter a city");
+  //   }
+  // };
 
   return (
     <div className="weatherFetch_container">
@@ -59,7 +73,7 @@ function WeatherFetch() {
         </label>
         <input className="button" type="submit" />
       </form>
-{/* 
+
       {id && (
         <div className="info">
           <p className="temperature">
@@ -68,7 +82,6 @@ function WeatherFetch() {
           </p>
           <p>id: {id}</p>
           <p className="temperature">Feels like: {feels_like}℃</p>
-          <p>Weather Parameter: {main}</p>
           <p className="othersInfo">Humidity: {humidity}%</p>
           <p className="othersInfo">Description: {description}</p>
           <img
@@ -77,17 +90,35 @@ function WeatherFetch() {
             alt="icon"
           />
         </div>
-      ) } */}
-
-{id ? (
+      )}
+      {city !=="" && id === undefined && "check your city"}
+{/* [{typeof id}] */}
+      {/* {!id ==="" ? (
         <div className="info">
           <p className="temperature">
             Temperature for <span className="location"> <a target="_blank" href={`https://en.wikipedia.org/wiki/${displayCity}`} rel="noreferrer">{displayCity}</a></span>:{" "}
             {mainTemp}℃
           </p>
-          {/* <p>id: {id}</p> */}
+          <p>id: {id}</p>
           <p className="temperature">Feels like: {feels_like}℃</p>
           {/* <p>Weather Parameter: {main}</p> */}
+      {/* <p className="othersInfo">Humidity: {humidity}%</p>
+          <p className="othersInfo">Description: {description}</p>
+          <img
+            className="image"
+            src={`http://openweathermap.org/img/wn/${iconID}@2x.png`}
+            alt="icon"
+          />
+        </div>  */}
+
+      {/* {id ? (
+        <div className="info">
+          <p className="temperature">
+            Temperature for <span className="location"> <a target="_blank" href={`https://en.wikipedia.org/wiki/${displayCity}`} rel="noreferrer">{displayCity}</a></span>:{" "}
+            {mainTemp}℃
+          </p>
+          <p>id: {id}</p>
+          <p className="temperature">Feels like: {feels_like}℃</p>
           <p className="othersInfo">Humidity: {humidity}%</p>
           <p className="othersInfo">Description: {description}</p>
           <img
@@ -96,7 +127,7 @@ function WeatherFetch() {
             alt="icon"
           />
         </div>
-      ) :"Check your city"}
+      ) :  <div>{message}</div>} */}
     </div>
   );
 }

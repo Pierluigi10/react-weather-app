@@ -64,6 +64,12 @@
   font-size: 0.9rem;
 }
 
+.temperature a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 .othersInfo {
   margin: 5px auto 1px;
   font-size: 0.8rem;
