@@ -15,7 +15,6 @@ function WeatherFetch() {
   const [id, setId] = useState("");
   const [iconID, setIconID] = useState([]);
   // const [showForm, setShowForm] = useState(false);
- 
 
   const loadPageData = async () => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`;
@@ -30,7 +29,7 @@ function WeatherFetch() {
       setHumidity(data.main.humidity);
       setIconID(data.weather[0].icon);
       setDisplayCity(city);
-      console.log(data.id);
+      // console.log(data.id);
       setId(data.id);
       console.log(data);
     }
@@ -91,43 +90,7 @@ function WeatherFetch() {
           />
         </div>
       )}
-      {city !=="" && id === undefined && "check your city"}
-{/* [{typeof id}] */}
-      {/* {!id ==="" ? (
-        <div className="info">
-          <p className="temperature">
-            Temperature for <span className="location"> <a target="_blank" href={`https://en.wikipedia.org/wiki/${displayCity}`} rel="noreferrer">{displayCity}</a></span>:{" "}
-            {mainTemp}℃
-          </p>
-          <p>id: {id}</p>
-          <p className="temperature">Feels like: {feels_like}℃</p>
-          {/* <p>Weather Parameter: {main}</p> */}
-      {/* <p className="othersInfo">Humidity: {humidity}%</p>
-          <p className="othersInfo">Description: {description}</p>
-          <img
-            className="image"
-            src={`http://openweathermap.org/img/wn/${iconID}@2x.png`}
-            alt="icon"
-          />
-        </div>  */}
-
-      {/* {id ? (
-        <div className="info">
-          <p className="temperature">
-            Temperature for <span className="location"> <a target="_blank" href={`https://en.wikipedia.org/wiki/${displayCity}`} rel="noreferrer">{displayCity}</a></span>:{" "}
-            {mainTemp}℃
-          </p>
-          <p>id: {id}</p>
-          <p className="temperature">Feels like: {feels_like}℃</p>
-          <p className="othersInfo">Humidity: {humidity}%</p>
-          <p className="othersInfo">Description: {description}</p>
-          <img
-            className="image"
-            src={`http://openweathermap.org/img/wn/${iconID}@2x.png`}
-            alt="icon"
-          />
-        </div>
-      ) :  <div>{message}</div>} */}
+      {city !== "" && id === undefined && "check your city"}
     </div>
   );
 }
