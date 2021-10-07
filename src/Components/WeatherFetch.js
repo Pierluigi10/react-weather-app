@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet";
+import React, { useState } from "react";
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
@@ -12,6 +11,7 @@ function WeatherFetch() {
   const [mainTemp, setMainTemp] = useState("");
   const [description, setDescription] = useState("");
   const [main, setMain] = useState("");
+  const [humidity, setHumidity] = useState("");
   const [id, setId] = useState("");
   const [iconID, setIconID] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -26,6 +26,7 @@ function WeatherFetch() {
       setFeelsLike(data.main.feels_like);
       setDescription(data.weather[0].description);
       setMain(data.weather[0].main);
+      setHumidity(data.main.humidity);
       setIconID(data.weather[0].icon);
       setDisplayCity(city);
       setId(data.id);
@@ -41,88 +42,62 @@ function WeatherFetch() {
     evt.preventDefault();
     loadPageData();
     setShowForm(true);
+    setId()
   };
 
   return (
-    <>
-      <Helmet
-        script={[
-          {
-            type: "text/javascript",
-            innerHTML: `
-             
-        window.myWidgetParam ? window.myWidgetParam : (window.myWidgetParam = []);
-        window.myWidgetParam.push({
-          id: 11,
-          cityid: "${id}",
-          appid: "b7e88f5530d434448d216c34fb206639",
-          units: "metric",
-          containerid: "openweathermap-widget-11",
-        });
-        (function () {
-          var script = document.createElement("script");
-          script.async = true;
-          script.charset = "utf-8";
-          script.src =
-            "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(script, s);
-        })(); `,
-          },
-        ]}
-      />
+    <div className="weatherFetch_container">
       <form onSubmit={handleSubmit}>
         <label>
-          Enter your City:
           <input
             type="text"
             value={city}
             onChange={(e) => setCity(e.target.value)}
+            className="chooseCity"
+            placeholder="Choose your city"
           />
         </label>
-        <input type="submit" />
+        <input className="button" type="submit" />
       </form>
-
-      {/* <form onSubmit={handleSubmit}>
-        <label>
-          Enter your City:
-          <input
-            type="text"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          />
-        </label>
-        <input type="submit" />
-      </form> */}
-
-      {showForm && (
-        <div>
-          <p>
-            Temperature for {displayCity}: {mainTemp}℃
+{/* 
+      {id && (
+        <div className="info">
+          <p className="temperature">
+            Temperature for <span className="location"> {displayCity}</span>:{" "}
+            {mainTemp}℃
           </p>
           <p>id: {id}</p>
-          <p>Feels like: {feels_like}℃</p>
+          <p className="temperature">Feels like: {feels_like}℃</p>
           <p>Weather Parameter: {main}</p>
-          <p>Description: {description}</p>
+          <p className="othersInfo">Humidity: {humidity}%</p>
+          <p className="othersInfo">Description: {description}</p>
           <img
+            className="image"
             src={`http://openweathermap.org/img/wn/${iconID}@2x.png`}
             alt="icon"
           />
         </div>
-      )}
-      <div id="openweathermap-widget-11"></div>
-      {/* <p>
-        Temperature for {displayCity}: {mainTemp}℃
-      </p>
-      <p>id: {id}</p>
-      <p>Feels like: {feels_like}℃</p>
-      <p>Weather Parameter: {main}</p>
-      <p>Description: {description}</p>
-      <img
-        src={`http://openweathermap.org/img/wn/${iconID}@2x.png`}
-        alt="icon"
-      /> */}
-    </>
+      ) } */}
+
+{id ? (
+        <div className="info">
+          <p className="temperature">
+            Temperature for <span className="location"> <a target="_blank" href={`https://en.wikipedia.org/wiki/${displayCity}`} rel="noreferrer">{displayCity}</a></span>:{" "}
+            {mainTemp}℃
+          </p>
+          {/* <p>id: {id}</p> */}
+          <p className="temperature">Feels like: {feels_like}℃</p>
+          {/* <p>Weather Parameter: {main}</p> */}
+          <p className="othersInfo">Humidity: {humidity}%</p>
+          <p className="othersInfo">Description: {description}</p>
+          <img
+            className="image"
+            src={`http://openweathermap.org/img/wn/${iconID}@2x.png`}
+            alt="icon"
+          />
+        </div>
+      ) :"Check your city"}
+    </div>
   );
 }
 export default WeatherFetch;
