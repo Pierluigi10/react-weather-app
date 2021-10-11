@@ -79,7 +79,7 @@ function WeatherFetch() {
             Temperature for <span className="location"> {displayCity}</span>:{" "}
             {mainTemp}℃
           </p>
-          <p>id: {id}</p>
+          {/* <p>id: {id}</p> */}
           <p className="temperature">Feels like: {feels_like}℃</p>
           <p className="othersInfo">Humidity: {humidity}%</p>
           <p className="othersInfo">Description: {description}</p>
