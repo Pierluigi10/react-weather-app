@@ -75,19 +75,31 @@ function WeatherFetch() {
 
       {id && (
         <div className="info">
-          <p className="temperature">
-            Temperature for <span className="location"> {displayCity}</span>:{" "}
-            {mainTemp}℃
+          <p className="elements temperature">
+            Temperature for{" "}
+            <span className="location">
+              {" "}
+              <a
+                target="_blank"
+                href={`https://en.wikipedia.org/wiki/${displayCity}`}
+                rel="noreferrer"
+              >
+                {displayCity}
+              </a>
+            </span>
+            : {mainTemp}℃
           </p>
           {/* <p>id: {id}</p> */}
-          <p className="temperature">Feels like: {feels_like}℃</p>
-          <p className="othersInfo">Humidity: {humidity}%</p>
-          <p className="othersInfo">Description: {description}</p>
-          <img
-            className="image"
-            src={`http://openweathermap.org/img/wn/${iconID}@2x.png`}
-            alt="icon"
-          />
+          <p className="elements temperature">Feels like: {feels_like}℃</p>
+          <p className="elements">Humidity: {humidity}%</p>
+          <div className="description">
+            <p className="elements">{description}</p>
+            <img
+              className="image"
+              src={`http://openweathermap.org/img/wn/${iconID}@2x.png`}
+              alt="icon"
+            />
+          </div>
         </div>
       )}
       {city !== "" && id === undefined && "check your city"}
