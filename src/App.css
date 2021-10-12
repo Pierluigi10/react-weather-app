@@ -95,14 +95,21 @@
 }
 
 .location {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #0c54a7;
 }
 
-.temperature a {
+.location a:link {
   text-decoration: none;
-  color: inherit;
-  cursor: pointer;
+}
+
+.location a:visited {
+  color: #0c54a7;
+  text-decoration: none;
+}
+
+.location a:hover {
+  color: #53534f;
 }
 
 .description {
