@@ -84,7 +84,7 @@ function WeatherFetch() {
 
       {id && (
         <div className="info">
-          <p className="elements temperature">
+          <p className="elements">
             Temperature for{" "}
             <span className="location">
               {" "}
@@ -96,11 +96,12 @@ function WeatherFetch() {
                 {displayCity}
               </a>
             </span>
-            : {mainTemp}℃
+            : <span className="numbers">{mainTemp}</span>℃
           </p>
           {/* <p>id: {id}</p> */}
-          <p className="elements temperature">Feels like: {feels_like}℃</p>
-          <p className="elements">Humidity: {humidity}%</p>
+         
+          <p className="elements">Feels like: <span className="numbers">{feels_like}</span>℃</p>
+          <p className="elements">Humidity: <span className="numbers">{humidity}</span>%</p>
           <div className="description">
             <p className="elements">{description}</p>
             <img

@@ -18,10 +18,28 @@
 }
 
 .appLabel {
-  color: black;
+  /* color: black; */
+  background-image: conic-gradient(#53534f, #0c54a7);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
   font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+  .App {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .appLabel {
+    font-size: 3.3rem;
+    font-weight: bold;
+    margin-bottom: 200px;
+  }
 }
 
 .weatherFetch_container {
@@ -48,17 +66,24 @@
   border-radius: 5px;
 }
 
-.weatherFetch_container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+@media only screen and (min-width: 768px) {
+  .chooseCity {
+    font-size: 2.3rem;
+    border-radius: 5px;
+    width: 70%;
+    margin: 10px 2px auto 30px;
+    padding: 10px 40px;
+  }
+
+  .button {
+    font-size: 2.3rem;
+  }
 }
 
 .info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  display: flex;
   width: 100%;
   margin: 30px auto;
 }
@@ -88,6 +113,7 @@
 
 .errorMessage {
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .pleaseMessage {
@@ -109,19 +135,35 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .App {
-    background-color: blue;
-    width: 380px;
-    height: 280px;
-    padding: 20px 10px;
-    margin: 80px 10px auto 30px;
-    border-radius: 4px;
-    box-shadow: 0 3px 6px 0 #555;
+  .info {
+    margin: 30px auto;
   }
-}
 
-@media only screen and (min-width: 958px) {
-  .App {
-    background-color: red;
+  .elements {
+    font-size: 2rem;
+    margin-top: 20px;
+  }
+
+  .numbers {
+    font-size: 2.3rem;
+    margin: 0 3px;
+  }
+
+  .location {
+    font-size: 2.4rem;
+  }
+
+  .description p {
+    font-size: 2.4rem;
+  }
+
+  .description img {
+    width: 200px;
+  }
+
+  .errorMessage {
+    font-weight: bold;
+    font-size: 2.5rem;
+    width: 60%;
   }
 }
