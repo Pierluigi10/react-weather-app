@@ -59,6 +59,14 @@ function WeatherFetch() {
   //   }
   // };
 
+  let errorMessage = "";
+  if (city === "" && id === undefined) {
+    errorMessage = "Please enter your city";
+  }
+  if (city !== "" && id === undefined) {
+    errorMessage = "Check your city";
+  }
+
   return (
     <div className="weatherFetch_container">
       <form onSubmit={handleSubmit}>
@@ -103,7 +111,7 @@ function WeatherFetch() {
           </div>
         </div>
       )}
-      {city !== "" && id === undefined && "check your city"}
+      {errorMessage}
     </div>
   );
 }

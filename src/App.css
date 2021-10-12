@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* background-color: #eee; */
   font-family: "Montserrat", sans-serif;
 }
 
@@ -36,7 +35,7 @@
   font-weight: bold;
   border-radius: 5px;
   width: 60%;
-  margin: 10px 2px auto 10px;
+  margin: 10px 2px auto 20px;
   padding: 10px;
   background-color: papayawhip;
 }
