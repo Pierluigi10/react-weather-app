@@ -19,6 +19,7 @@
 
 .appLabel {
   /* color: black; */
+  background-clip: border-box;
   background-image: conic-gradient(#53534f, #0c54a7);
   -webkit-background-clip: text;
   -moz-background-clip: text;
@@ -126,6 +127,7 @@
 .pleaseMessage {
   /* color: red; */
   background-image: conic-gradient(#6d6d68, #174a85);
+  background-clip: border-box;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -134,6 +136,7 @@
 
 .checkMessage {
   /* color: green; */
+  background-clip: border-box;
   background-image: conic-gradient(#6d6d68, #b31010);
   -webkit-background-clip: text;
   -moz-background-clip: text;
