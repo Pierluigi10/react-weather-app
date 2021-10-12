@@ -62,7 +62,7 @@ function WeatherFetch() {
             placeholder="Choose your city"
           />
         </label>
-        <input className="button" type="submit" />
+        <button className="button" type="submit" >submit</button>
       </form>
 
       {id && (
