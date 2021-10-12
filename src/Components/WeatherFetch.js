@@ -25,11 +25,14 @@ function WeatherFetch() {
       const data = await response.json();
       setMainTemp(data.main.temp);
       setFeelsLike(data.main.feels_like);
-      setDescription(data.weather[0].description);
+      setDescription(
+        data.weather[0].description.charAt(0).toUpperCase() +
+          data.weather[0].description.slice(1)
+      );
       // setMain(data.weather[0].main);
       setHumidity(data.main.humidity);
       setIconID(data.weather[0].icon);
-      setDisplayCity(city);
+      setDisplayCity(city.charAt(0).toUpperCase() + city.slice(1));
       // console.log(data.id);
       setId(data.id);
       console.log(data);
@@ -99,9 +102,13 @@ function WeatherFetch() {
             : <span className="numbers">{mainTemp}</span>℃
           </p>
           {/* <p>id: {id}</p> */}
-         
-          <p className="elements">Feels like: <span className="numbers">{feels_like}</span>℃</p>
-          <p className="elements">Humidity: <span className="numbers">{humidity}</span>%</p>
+
+          <p className="elements">
+            Feels like: <span className="numbers">{feels_like}</span>℃
+          </p>
+          <p className="elements">
+            Humidity: <span className="numbers">{humidity}</span>%
+          </p>
           <div className="description">
             <p className="elements">{description}</p>
             <img
