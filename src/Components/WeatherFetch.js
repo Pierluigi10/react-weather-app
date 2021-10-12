@@ -11,11 +11,9 @@ function WeatherFetch() {
   const [feels_like, setFeelsLike] = useState("");
   const [mainTemp, setMainTemp] = useState("");
   const [description, setDescription] = useState("");
-  // const [main, setMain] = useState("");
   const [humidity, setHumidity] = useState("");
   const [id, setId] = useState("");
   const [iconID, setIconID] = useState([]);
-  // const [showForm, setShowForm] = useState(false);
 
   const loadPageData = async () => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`;
@@ -29,7 +27,6 @@ function WeatherFetch() {
         data.weather[0].description.charAt(0).toUpperCase() +
           data.weather[0].description.slice(1)
       );
-      // setMain(data.weather[0].main);
       setHumidity(data.main.humidity);
       setIconID(data.weather[0].icon);
       setDisplayCity(city.charAt(0).toUpperCase() + city.slice(1));
@@ -39,28 +36,11 @@ function WeatherFetch() {
     }
   };
 
-  // useEffect(() => {
-  //   loadPageData();
-  // }, [city]);
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
     loadPageData();
-    // setShowForm(true);
     setId();
   };
-
-  // const handleSubmit = (evt) => {
-  //   if(id !== ""){
-  //   evt.preventDefault();
-  //   loadPageData();
-  //   // setShowForm(true);
-  //   setId();
-
-  // } else {
-  //   setMessage("Please enter a city");
-  //   }
-  // };
 
   let errorMessage = "";
   if (city === "" && id === undefined) {
@@ -90,7 +70,6 @@ function WeatherFetch() {
           <p className="elements">
             Temperature for{" "}
             <span className="location">
-              {" "}
               <a
                 target="_blank"
                 href={`https://en.wikipedia.org/wiki/${displayCity}`}
@@ -101,8 +80,6 @@ function WeatherFetch() {
             </span>
             : <span className="numbers">{mainTemp}</span>℃
           </p>
-          {/* <p>id: {id}</p> */}
-
           <p className="elements">
             Feels like: <span className="numbers">{feels_like}</span>℃
           </p>
