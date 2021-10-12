@@ -111,7 +111,13 @@ function WeatherFetch() {
           </div>
         </div>
       )}
-      {errorMessage}
+      <div
+        className={`errorMessage ${
+          city === "" ? "pleaseMessage" : "checkMessage"
+        }`}
+      >
+        {errorMessage}
+      </div>
     </div>
   );
 }

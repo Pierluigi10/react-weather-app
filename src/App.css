@@ -86,7 +86,27 @@
   align-items: center;
 }
 
+.errorMessage {
+  font-weight: bold;
+}
 
+.pleaseMessage {
+  /* color: red; */
+  background-image: conic-gradient(#6d6d68, #174a85);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.checkMessage {
+  /* color: green; */
+  background-image: conic-gradient(#6d6d68, #b31010);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
 
 @media only screen and (min-width: 768px) {
   .App {
