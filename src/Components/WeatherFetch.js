@@ -91,10 +91,10 @@ function WeatherFetch() {
             <span className="mainTemp">{mainTemp}℃</span>
           </div>
           <div className="elements">
-            Feels like: <span className="numbers">{feels_like}</span>℃
+            Feels like: <span className="numbers">{feels_like}℃</span>
           </div>
           <div className="elements">
-            Humidity: <span className="numbers">{humidity}</span>%
+            Humidity: <span className="numbers">{humidity}%</span>
           </div>
           <div className="description">
             <p className="elements">{description}</p>
@@ -106,10 +106,10 @@ function WeatherFetch() {
           </div>
           <div className="elements moreInfo">
             <p className="sunrise">
-              Sunrise: {moment.unix(sunrise).format("hh:mm:ss a")}
+              Sunrise: <span className="numbers">{moment.unix(sunrise).format("hh:mm:ss a")}</span>
             </p>
             <p className="sunset">
-              Sunset: {moment.unix(sunset).format("hh:mm:ss a")}
+              Sunset:<span className="numbers"> {moment.unix(sunset).format("hh:mm:ss a")}</span>
             </p>
           </div>
         </div>

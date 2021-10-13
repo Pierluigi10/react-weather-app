@@ -108,7 +108,7 @@
 .elements {
   color: #083f7e;
   margin: 5px auto;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 600;
 }
 
@@ -129,6 +129,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.sunrise {
+  margin-bottom: 10px;
+}
+
+.numbers {
+  font-size: 1.7rem;
 }
 
 .errorMessage {
