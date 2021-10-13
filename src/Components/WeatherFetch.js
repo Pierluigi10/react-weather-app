@@ -78,8 +78,7 @@ function WeatherFetch() {
 
       {id && (
         <div className="info">
-          <div className="elements">
-            Temperature for{" "}
+          <div className="mainInfo">
             <span className="location">
               <a
                 target="_blank"
@@ -89,7 +88,7 @@ function WeatherFetch() {
                 {displayCity}, {country}
               </a>
             </span>
-            : <span className="numbers">{mainTemp}</span>℃
+            <span className="mainTemp">{mainTemp}℃</span>
           </div>
           <div className="elements">
             Feels like: <span className="numbers">{feels_like}</span>℃
@@ -105,7 +104,7 @@ function WeatherFetch() {
               alt="icon"
             />
           </div>
-          <div className="moreInfo">
+          <div className="elements moreInfo">
             <p className="sunrise">
               Sunrise: {moment.unix(sunrise).format("hh:mm:ss a")}
             </p>
