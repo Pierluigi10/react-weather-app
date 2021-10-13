@@ -72,7 +72,7 @@ function WeatherFetch() {
           />
         </label>
         <button className="button" type="submit">
-          submit
+          check
         </button>
       </form>
 
