@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
 
-// const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
-const API_KEY = "b7e88f5530d434448d216c34fb206639";
+const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+
 
 function WeatherFetch() {
   // const city = "berlin"
