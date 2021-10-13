@@ -1,6 +1,6 @@
 # React Weather App
 
-This web page is a simple portifolio made with Reactjs for training.
+This webpage is a simple project to check the weather forecast and was created with ReactJS for training purposes.
 
 <br />
 
@@ -10,32 +10,47 @@ https://whatistheweatherlike.netlify.app/
 
 <br />
 
->Mobile Version
+> Mobile Version
 
 ![Screenshot Page Mobile](./public/images/mobile.png)
 
 <br />
 
-
->Desktop Version
+> Desktop Version
 
 ![Screenshot Page Desktop](./public/images/desktop.png)
+
 <br />
 <br />
 <br />
 
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+<br />
+<br />
+<br />
+<br />
 
+## API Used
 
+[Open Weather Map](https://openweathermap.org/api)
+<br />
+<br />
 
-## Learn More
+## Library Used
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Moment.js](https://momentjs.com/), a JavaScript date library for parsing, validating, manipulating and formatting dates.
+
+<br />
+<br />
+
+## Learn More About ReactJS:
+
+Check out the React documentation on the [Official Website](https://reactjs.org/).
