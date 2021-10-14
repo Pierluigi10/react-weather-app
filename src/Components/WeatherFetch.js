@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
 import moment from "moment";
+import "./weatherFetch.scss";
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 // const API_KEY = "b7e88f5530d434448d216c34fb206639";
@@ -61,6 +62,7 @@ function WeatherFetch() {
 
   return (
     <div className="weatherFetch_container">
+      <h1 className="appLabel">What's the weather like? </h1>
       <form onSubmit={handleSubmit}>
         <label>
           <input
@@ -106,10 +108,17 @@ function WeatherFetch() {
           </div>
           <div className="elements moreInfo">
             <p className="sunrise">
-              Sunrise: <span className="numbers">{moment.unix(sunrise).format("hh:mm:ss a")}</span>
+              Sunrise:{" "}
+              <span className="numbers">
+                {moment.unix(sunrise).format("hh:mm:ss a")}
+              </span>
             </p>
             <p className="sunset">
-              Sunset:<span className="numbers"> {moment.unix(sunset).format("hh:mm:ss a")}</span>
+              Sunset:
+              <span className="numbers">
+                {" "}
+                {moment.unix(sunset).format("hh:mm:ss a")}
+              </span>
             </p>
           </div>
         </div>
