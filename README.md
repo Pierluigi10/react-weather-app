@@ -41,6 +41,7 @@ You will also see any lint errors in the console.
 ## API Used
 
 [Open Weather Map](https://openweathermap.org/api)
+
 <br />
 <br />
 
