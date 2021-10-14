@@ -25,8 +25,8 @@ function WeatherFetch() {
     const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
-      setMainTemp(data.main.temp);
-      setFeelsLike(data.main.feels_like);
+      setMainTemp(data.main.temp.toFixed(1));
+      setFeelsLike(data.main.feels_like.toFixed(1));
       setDescription(
         data.weather[0].description.charAt(0).toUpperCase() +
           data.weather[0].description.slice(1)
