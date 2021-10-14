@@ -4,7 +4,6 @@ import moment from "moment";
 import "./weatherFetch.scss";
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
-// const API_KEY = "b7e88f5530d434448d216c34fb206639";
 
 function WeatherFetch() {
   // const city = "berlin"
@@ -22,7 +21,6 @@ function WeatherFetch() {
 
   const loadPageData = async () => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`;
-    // const url = `api.openweathermap.org/data/2.5/forecast?id={city ID}&appid={API key}`;
     const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
