@@ -54,8 +54,7 @@ You will also see any lint errors in the console.
 
 ## Graphic Extension Used
 
-[SASS](https://sass-lang.com/)
-Sass is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS). SassScript is the scripting language itself.
+[SASS](https://sass-lang.com/) is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS). SassScript is the scripting language itself.
 
 <br />
 <br />
